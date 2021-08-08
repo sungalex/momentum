@@ -25,7 +25,14 @@ function onLoginSubmit(event) {
 }
 
 function paintingGreetings(username) {
-  greeting.innerText = `Hello, ${username}`;
+  const heartRight = document.createElement('i');
+  const span = document.createElement('span');
+
+  heartRight.setAttribute('class', 'far fa-kiss-wink-heart');
+  span.innerText = `Hello, ${username} ~~`;
+
+  greeting.appendChild(span);
+  greeting.appendChild(heartRight);
   todoContainer.classList.remove(HIDDEN_CLASSNAME);
 }
 

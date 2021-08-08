@@ -19,7 +19,7 @@
       <div class="login-container hidden">
         <form id="login-form">
           <div id="input-label">Hello, What your name?</div>
-          <input required maxlength="15" type="text" />
+          <input required maxlength="15" type="text" size="30" />
         </form>
       </div>
       <div id="todo-container" class="todo-container hidden">
@@ -29,13 +29,21 @@
           <input
             type="text"
             placeholder="Write a ToDo and Press Enter!"
-            size="28"
+            size="30"
             required
           />
         </form>
         <div class="tasks">
-          <ul id="todo-list"></ul>
-          <ul id="done-list"></ul>
+          <div class="todo-list">
+            <div class="task-title">ToDo List</div>
+            <ul id="todo-list"></ul>
+          </div>
+          <div class="done-list">
+            <div class="task-title">
+              <span>Done List</span>
+            </div>
+            <ul id="done-list"></ul>
+          </div>
         </div>
       </div>
       <div id="quote">
