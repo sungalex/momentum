@@ -17,22 +17,22 @@ function saveDone() {
 }
 
 function deleteToDo(event) {
-  const li = event.target.parentElement;
+  const li = event.target.parentElement.parentElement;
   li.remove();
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   saveToDo();
 }
 
 function deleteDone(event) {
-  const li = event.target.parentElement;
+  const li = event.target.parentElement.parentElement;
   li.remove();
   dones = dones.filter((done) => done.id !== parseInt(li.id));
   saveDone();
 }
 
 function doneToDo(event) {
-  const li = event.target.parentElement;
-  const span = li.querySelector('span:last-child');
+  const li = event.target.parentElement.parentElement;
+  const span = li.querySelector('.todoText');
   deleteToDo(event);
   const newDoneObj = {
     text: span.innerText,
@@ -44,23 +44,25 @@ function doneToDo(event) {
 }
 
 function goBackToDo(event) {
-  const li = event.target.parentElement;
-  const span = li.querySelector('span:last-child');
+  const li = event.target.parentElement.parentElement;
+  const span = li.querySelector('.doneText');
   deleteDone(event);
-  const newDoneObj = {
+  const newToDoObj = {
     text: span.innerText,
     id: parseInt(li.id),
   };
-  toDos.push(newDoneObj);
-  paintToDo(newDoneObj);
+  toDos.push(newToDoObj);
+  paintToDo(newToDoObj);
   saveToDo();
 }
 
 function paintToDo(newToDo) {
   const li = document.createElement('li');
   li.id = newToDo.id;
-  const span = document.createElement('span');
-  span.innerText = newToDo.text;
+  const spanIcon = document.createElement('span');
+  const spanText = document.createElement('span');
+  spanText.innerText = newToDo.text;
+  spanText.setAttribute('class', 'todoText');
   const close = document.createElement('i');
   const check = document.createElement('i');
   close.setAttribute('class', 'fas fa-minus-circle');
@@ -69,17 +71,20 @@ function paintToDo(newToDo) {
   check.setAttribute('class', 'fas fa-arrow-circle-right');
   check.addEventListener('click', doneToDo);
   check.setAttribute('title', 'Done');
-  li.appendChild(close);
-  li.appendChild(check);
-  li.appendChild(span);
+  spanIcon.appendChild(close);
+  spanIcon.appendChild(check);
+  li.appendChild(spanIcon);
+  li.appendChild(spanText);
   toDoList.appendChild(li);
 }
 
-function paintDone(newToDo) {
+function paintDone(newDone) {
   const li = document.createElement('li');
-  li.id = newToDo.id;
-  const span = document.createElement('span');
-  span.innerText = newToDo.text;
+  li.id = newDone.id;
+  const spanIcon = document.createElement('span');
+  const spanText = document.createElement('span');
+  spanText.innerText = newDone.text;
+  spanText.setAttribute('class', 'doneText');
   const close = document.createElement('i');
   const check = document.createElement('i');
   close.setAttribute('class', 'fas fa-minus-circle');
@@ -88,9 +93,10 @@ function paintDone(newToDo) {
   check.setAttribute('class', 'fas fa-arrow-circle-left');
   check.addEventListener('click', goBackToDo);
   check.setAttribute('title', 'Go back ToDo');
-  li.appendChild(close);
-  li.appendChild(check);
-  li.appendChild(span);
+  spanIcon.appendChild(close);
+  spanIcon.appendChild(check);
+  li.appendChild(spanIcon);
+  li.appendChild(spanText);
   doneList.appendChild(li);
 }
 
