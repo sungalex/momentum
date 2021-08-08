@@ -141,6 +141,9 @@ body {
 #todo-list li,
 #done-list li {
   padding-bottom: 15px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-auto-rows: auto;
 }
 
 #todo-list li .fa-minus-circle,
