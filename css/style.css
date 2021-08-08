@@ -160,6 +160,7 @@ body {
 #todo-list li span:last-child,
 #done-list li span:last-child {
   width: 100%;
+  word-break: break-all;
 }
 
 #todo-list li .fa-minus-circle,
