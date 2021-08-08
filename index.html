@@ -8,30 +8,45 @@
     <title>Monentum App</title>
   </head>
   <body>
-    <form id="login-form" class="hidden">
-      <label for="login-input">Hello, What your name?</label>
-      <input required maxlength="15" type="text" />
-    </form>
-    <div id="toto-container" class="hidden">
-      <h2 id="clock">00:00:00</h2>
-      <h1 id="greeting"></h1>
-      <form id="todo-form">
-        <input
-          type="text"
-          placeholder="Write a TODO and Press Enter"
-          required
-        />
-      </form>
-      <ul id="todo-list"></ul>
+    <div class="main-container">
+      <div class="weather-container">
+        <div id="weather">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="login-container hidden">
+        <form id="login-form">
+          <div id="input-label">Hello, What your name?</div>
+          <input required maxlength="15" type="text" />
+        </form>
+      </div>
+      <div id="todo-container" class="todo-container hidden">
+        <div id="clock">00:00:00</div>
+        <div id="greeting"></div>
+        <form id="todo-form">
+          <input
+            type="text"
+            placeholder="Write a ToDo and Press Enter!"
+            size="28"
+            required
+          />
+        </form>
+        <div class="tasks">
+          <ul id="todo-list"></ul>
+          <ul id="done-list"></ul>
+        </div>
+      </div>
+      <div id="quote">
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <div id="quote">
-      <span></span>
-      <span></span>
-    </div>
-    <div id="weather">
-      <span></span>
-      <span></span>
-    </div>
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/background.js"></script>
     <script src="js/greetings.js"></script>
     <script src="js/clock.js"></script>

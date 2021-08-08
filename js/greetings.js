@@ -1,6 +1,7 @@
+const loginContainer = document.querySelector('.login-container');
 const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
-const totoContainer = document.querySelector('#toto-container');
+const todoContainer = document.querySelector('#todo-container');
 const greeting = document.querySelector('#greeting');
 
 const HIDDEN_CLASSNAME = 'hidden';
@@ -13,7 +14,7 @@ function onLoginSubmit(event) {
      preventDefault() 함수는 event의 기본 동작을 실행하지 않도록 막아줌
   */
   event.preventDefault();
-  loginForm.classList.add(HIDDEN_CLASSNAME);
+  loginContainer.classList.add(HIDDEN_CLASSNAME);
   const username = loginInput.value;
 
   // localStorage는 브라우저의 저장 공간이며, 변수를 선언하지 않고 바로 사용함
@@ -25,13 +26,13 @@ function onLoginSubmit(event) {
 
 function paintingGreetings(username) {
   greeting.innerText = `Hello, ${username}`;
-  totoContainer.classList.remove(HIDDEN_CLASSNAME);
+  todoContainer.classList.remove(HIDDEN_CLASSNAME);
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 if (savedUsername === null) {
-  loginForm.classList.remove('hidden');
+  loginContainer.classList.remove('hidden');
   loginForm.addEventListener('submit', onLoginSubmit);
 } else {
   paintingGreetings(savedUsername);

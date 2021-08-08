@@ -12,6 +12,8 @@ function deleteToDo(event) {
   saveToDo();
 }
 
+function doneToDo(event) {}
+
 function saveToDo() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
@@ -21,10 +23,16 @@ function paintToDo(newToDo) {
   li.id = newToDo.id;
   const span = document.createElement('span');
   span.innerText = newToDo.text;
-  const button = document.createElement('button');
-  button.innerText = '❌';
-  button.addEventListener('click', deleteToDo);
-  li.appendChild(button);
+  const close = document.createElement('i');
+  const check = document.createElement('i');
+  close.setAttribute('class', 'fas fa-minus-circle');
+  close.addEventListener('click', deleteToDo);
+  close.setAttribute('title', 'Delete');
+  check.setAttribute('class', 'fas fa-check-circle');
+  check.addEventListener('click', doneToDo);
+  check.setAttribute('title', 'Done');
+  li.appendChild(close);
+  li.appendChild(check);
   li.appendChild(span);
   toDoList.appendChild(li);
 }
