@@ -127,7 +127,7 @@ body {
 
 .todo-container .tasks #todo-list,
 .todo-container .tasks #done-list {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .tasks .task-title {
