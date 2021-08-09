@@ -75,6 +75,14 @@ body {
   font-weight: 600;
   padding-bottom: 20px;
   text-shadow: 1px 1px 2px rgba(233, 232, 232, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#clock span:first-child {
+  margin-bottom: 5px;
 }
 
 #greeting {
