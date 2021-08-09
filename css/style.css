@@ -61,6 +61,7 @@ body {
   padding: 10px;
   margin-bottom: 20px;
   outline: none;
+  box-sizing: border-box;
 }
 
 .todo-container {
@@ -97,19 +98,6 @@ body {
   border-radius: 50%;
 }
 
-.todo-container #todo-form input {
-  border: none;
-  background-color: rgba(233, 232, 232, 0.7);
-  box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0.3);
-  border-radius: 30px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 400;
-  padding: 10px;
-  margin-bottom: 20px;
-  outline: none;
-}
-
 .todo-container .tasks {
   display: flex;
   justify-content: center;
@@ -118,8 +106,8 @@ body {
   font-weight: 400;
 }
 
-.todo-container .tasks .todo-list,
-.todo-container .tasks .done-list {
+.tasks .todo,
+.tasks .done {
   width: 300px;
   height: 300px;
   background-color: rgba(233, 232, 232, 0.8);
@@ -131,11 +119,6 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   margin: 10px;
-}
-
-.todo-container .tasks #todo-list,
-.todo-container .tasks #done-list {
-  overflow: auto;
 }
 
 .tasks .task-title {
@@ -154,6 +137,7 @@ body {
 .tasks #todo-list,
 .tasks #done-list {
   width: 100%;
+  overflow: auto;
 }
 
 #todo-list li,
@@ -163,12 +147,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-auto-rows: auto;
-}
-
-#todo-list li span:last-child,
-#done-list li span:last-child {
-  width: 100%;
-  word-break: break-all;
 }
 
 #todo-list li .fa-minus-circle,
@@ -183,6 +161,12 @@ body {
   color: rgb(41, 41, 247);
   margin-right: 10px;
   cursor: pointer;
+}
+
+#todo-list li .todoText,
+#done-list li .todoText {
+  width: 100%;
+  word-break: break-all;
 }
 
 #quote {
