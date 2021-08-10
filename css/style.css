@@ -108,7 +108,7 @@ body {
 
 .tasks .todo,
 .tasks .done {
-  width: 300px;
+  width: 350px;
   height: 300px;
   background-color: rgba(233, 232, 232, 0.8);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
