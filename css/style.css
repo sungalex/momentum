@@ -110,7 +110,7 @@ body {
 
 .tasks .todo,
 .tasks .done {
-  width: 350px;
+  width: 400px;
   height: 300px;
   background-color: rgba(233, 232, 232, 0.8);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
@@ -147,7 +147,7 @@ body {
   width: 100%;
   padding-bottom: 15px;
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: max-content 1fr;
   grid-auto-rows: auto;
 }
 
