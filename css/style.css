@@ -12,7 +12,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 10fr 1fr;
+  grid-template-rows: 1fr 40px;
   padding-top: 50px;
   box-sizing: border-box;
 }
@@ -177,7 +177,8 @@ body {
   align-items: center;
   font-size: 20px;
   color: white;
-  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.9);
+  padding: 0px 10px;
+  background-color: rgba(54, 54, 54, 0.3);
 }
 
 #quote span:last-child {
