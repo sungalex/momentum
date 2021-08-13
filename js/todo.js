@@ -45,7 +45,7 @@ function doneToDo(event) {
 
 function goBackToDo(event) {
   const li = event.target.parentElement.parentElement;
-  const span = li.querySelector('.doneText');
+  const span = li.querySelector('.todoText');
   deleteDone(event);
   const newToDoObj = {
     text: span.innerText,
@@ -56,47 +56,45 @@ function goBackToDo(event) {
   saveToDo();
 }
 
-function paintToDo(newToDo) {
+function createTodoElement(todo) {
   const li = document.createElement('li');
-  li.id = newToDo.id;
+  li.id = todo.id;
   const spanIcon = document.createElement('span');
   const spanText = document.createElement('span');
-  spanText.innerText = newToDo.text;
+  spanText.innerText = todo.text;
   spanText.setAttribute('class', 'todoText');
   const close = document.createElement('i');
   const check = document.createElement('i');
+  spanIcon.appendChild(close);
+  spanIcon.appendChild(check);
+  li.appendChild(spanIcon);
+  li.appendChild(spanText);
+  return li
+}
+
+function paintToDo(newToDo) {
+  const li = createTodoElement(newToDo);
+  const close = li.querySelector("span i:first-child");
+  const check = li.querySelector("span i:last-child");
   close.setAttribute('class', 'fas fa-minus-circle');
   close.addEventListener('click', deleteToDo);
   close.setAttribute('title', 'Delete');
   check.setAttribute('class', 'fas fa-arrow-circle-right');
   check.addEventListener('click', doneToDo);
   check.setAttribute('title', 'Done');
-  spanIcon.appendChild(close);
-  spanIcon.appendChild(check);
-  li.appendChild(spanIcon);
-  li.appendChild(spanText);
   toDoList.appendChild(li);
 }
 
 function paintDone(newDone) {
-  const li = document.createElement('li');
-  li.id = newDone.id;
-  const spanIcon = document.createElement('span');
-  const spanText = document.createElement('span');
-  spanText.innerText = newDone.text;
-  spanText.setAttribute('class', 'doneText');
-  const close = document.createElement('i');
-  const check = document.createElement('i');
+  const li = createTodoElement(newDone);
+  const close = li.querySelector("span i:first-child");
+  const check = li.querySelector("span i:last-child");
   close.setAttribute('class', 'fas fa-minus-circle');
   close.addEventListener('click', deleteDone);
   close.setAttribute('title', 'Delete');
   check.setAttribute('class', 'fas fa-arrow-circle-left');
   check.addEventListener('click', goBackToDo);
   check.setAttribute('title', 'Go back ToDo');
-  spanIcon.appendChild(close);
-  spanIcon.appendChild(check);
-  li.appendChild(spanIcon);
-  li.appendChild(spanText);
   doneList.appendChild(li);
 }
 
